@@ -1,8 +1,14 @@
 # {{ cookiecutter.project_name }}
 
-**Autor:** {{ cookiecutter.author_name }}
-**Instituição:** {{ cookiecutter.institution }}
+{% if cookiecutter.co_authors %}**Autores:**
+- {{ cookiecutter.author_name }} ({{ cookiecutter.author_email }})
+{%- for author in cookiecutter.co_authors.split(',') %}
+- {{ author.strip() }}
+{%- endfor %}
+{% else %}**Autor:** {{ cookiecutter.author_name }}
 **Email:** {{ cookiecutter.author_email }}
+{% endif %}
+**Instituição:** {{ cookiecutter.institution }}
 
 ---
 
@@ -32,7 +38,11 @@ Este documento foi gerado usando o template Cookiecutter para Jupyter Book, faci
 
 ```bibtex
 @misc{ {{- cookiecutter.project_slug -}} ,
+  {% if cookiecutter.co_authors -%}
+  author = { {{- cookiecutter.author_name }} and {{ cookiecutter.co_authors.replace(',', ' and ') -}} },
+  {%- else -%}
   author = { {{- cookiecutter.author_name -}} },
+  {%- endif %}
   title = { {{- cookiecutter.project_name -}} },
   year = {2024},
   institution = { {{- cookiecutter.institution -}} }

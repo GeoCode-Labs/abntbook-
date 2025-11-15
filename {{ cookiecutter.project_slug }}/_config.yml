@@ -5,7 +5,11 @@
 # Informações do Livro
 #######################################################################################
 title: {{ cookiecutter.project_name }}
+{% if cookiecutter.co_authors -%}
+author: {{ cookiecutter.author_name }}, {{ cookiecutter.co_authors }}
+{%- else -%}
 author: {{ cookiecutter.author_name }}
+{%- endif %}
 logo: _static/logo.png
 copyright: "2024"
 

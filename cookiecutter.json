@@ -3,6 +3,7 @@
   "project_slug": "meu_projeto_cientifico",
   "author_name": "Seu Nome",
   "author_email": "email@example.com",
+  "co_authors": "",
   "institution": "Nome da Instituição",
   "github_username": "seu_usuario",
   "project_description": "Descrição do projeto em uma linha",

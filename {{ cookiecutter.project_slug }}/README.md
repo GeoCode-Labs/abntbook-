@@ -2,7 +2,16 @@
 
 {{ cookiecutter.project_description }}
 
+{% if cookiecutter.co_authors -%}
+**Autores:**
+- {{ cookiecutter.author_name }} ({{ cookiecutter.author_email }})
+{%- for author in cookiecutter.co_authors.split(',') %}
+- {{ author.strip() }}
+{%- endfor %}
+{%- else -%}
 **Autor:** {{ cookiecutter.author_name }} ({{ cookiecutter.author_email }})
+{%- endif %}
+
 **Instituição:** {{ cookiecutter.institution }}
 **Versão:** {{ cookiecutter.version }}
 

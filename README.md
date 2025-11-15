@@ -36,8 +36,9 @@ Durante a criação, você será questionado sobre:
 
 - **project_name**: Nome completo do seu projeto (ex: "Meu Trabalho de Conclusão de Curso")
 - **project_slug**: Nome técnico do projeto (ex: "meu_tcc")
-- **author_name**: Seu nome completo
-- **author_email**: Seu email
+- **author_name**: Nome do autor principal
+- **author_email**: Email do autor principal
+- **co_authors**: Co-autores separados por vírgula (ex: "Maria Silva, João Costa, Ana Souza") - deixe em branco se for autor único
 - **institution**: Nome da sua instituição
 - **github_username**: Seu usuário do GitHub
 - **project_description**: Descrição breve do projeto
@@ -158,31 +159,48 @@ Este projeto é de código aberto e está disponível para uso acadêmico e educ
 
 ## 💡 Exemplos de Uso
 
-### Trabalho de Conclusão de Curso (TCC)
+### Trabalho de Conclusão de Curso (TCC) - Autor Único
 ```bash
 cookiecutter gh:GeoCode-Labs/abntbook-
 # project_name: Análise de Algoritmos de Machine Learning
 # project_slug: tcc-ml-analise
 # author_name: João Silva
+# author_email: joao.silva@email.com
+# co_authors: [deixe em branco]
 # github_username: joaosilva
 # institution: Universidade Federal de Exemplo
 ```
 
-### Dissertação de Mestrado
+### Dissertação de Mestrado - Com Orientador
 ```bash
 cookiecutter gh:GeoCode-Labs/abntbook-
 # project_name: Otimização de Redes Neurais Profundas
 # project_slug: dissertacao-redes-neurais
 # author_name: Maria Santos
+# author_email: maria.santos@email.com
+# co_authors: Prof. Dr. Carlos Oliveira (orientador)
 # institution: Instituto de Tecnologia Exemplo
 ```
 
-### Documentação Técnica
+### Artigo Científico - Múltiplos Autores
+```bash
+cookiecutter gh:GeoCode-Labs/abntbook-
+# project_name: Análise de Integridade Fundiária
+# project_slug: analise-fundiaria
+# author_name: Ana Costa
+# author_email: ana@geocodelabs.com
+# co_authors: Pedro Silva, Carla Souza, João Pereira
+# institution: GeoCode Labs
+```
+
+### Documentação Técnica - Equipe
 ```bash
 cookiecutter gh:GeoCode-Labs/abntbook-
 # project_name: Guia Completo de Python para Ciência de Dados
 # project_slug: guia-python-ds
 # author_name: Pedro Costa
+# author_email: pedro@datalab.com
+# co_authors: Maria Silva (DataLab), João Santos (DataLab)
 # institution: DataLab Research
 ```
 
