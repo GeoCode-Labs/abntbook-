@@ -1,0 +1,8 @@
+{
+  "project_name": "Meu Projeto Científico",
+  "project_slug": "meu_projeto_cientifico",
+  "author_name": "Seu Nome",
+  "author_email": "email@example.com",
+  "institution": "Nome da Instituição",
+  "use_gitlab_ci": "yes"
+}

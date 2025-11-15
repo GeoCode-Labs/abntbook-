@@ -1,0 +1,16 @@
+image: texlive/texlive
+
+stages:
+  - build
+
+build_pdf:
+  stage: build
+  script:
+    - cd src
+    - pdflatex main.tex
+    - bibtex main
+    - pdflatex main.tex
+    - pdflatex main.tex
+  artifacts:
+    paths:
+      - src/main.pdf

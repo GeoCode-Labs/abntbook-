@@ -1,0 +1,12 @@
+# Dependências Python opcionais para ferramentas auxiliares
+# Descomente conforme necessário
+
+# Para conversão e processamento de arquivos
+# pypdf2==3.0.1
+# pillow==10.0.0
+
+# Para automação de build
+# invoke==2.2.0
+
+# Para verificação de ortografia
+# pyspellchecker==0.7.2
