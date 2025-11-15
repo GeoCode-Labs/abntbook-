@@ -1,4 +1,4 @@
-{% if cookiecutter.use_github_actions == "yes" %}name: Deploy Jupyter Book
+name: Deploy Jupyter Book
 
 on:
   push:
@@ -39,4 +39,3 @@ jobs:
           github_token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
           publish_dir: ./_build/html
           cname: {{ cookiecutter.project_slug }}.github.io
-{% endif %}
