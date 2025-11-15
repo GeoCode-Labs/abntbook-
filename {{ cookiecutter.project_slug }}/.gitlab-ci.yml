@@ -1,16 +1,48 @@
-image: texlive/texlive
+{% if cookiecutter.use_gitlab_ci == "yes" %}image: python:{{ cookiecutter.python_version }}
 
 stages:
   - build
+  - deploy
 
-build_pdf:
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+cache:
+  paths:
+    - .cache/pip
+    - venv/
+
+before_script:
+  - python -V
+  - pip install virtualenv
+  - virtualenv venv
+  - source venv/bin/activate
+  - pip install -r requirements.txt
+
+# Build do Jupyter Book
+build:
   stage: build
   script:
-    - cd src
-    - pdflatex main.tex
-    - bibtex main
-    - pdflatex main.tex
-    - pdflatex main.tex
+    - jupyter-book build .
   artifacts:
     paths:
-      - src/main.pdf
+      - _build/html
+    expire_in: 1 week
+  only:
+    - main
+    - master
+    - develop
+
+# Deploy para GitLab Pages
+pages:
+  stage: deploy
+  script:
+    - jupyter-book build .
+    - mv _build/html public
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
+    - master
+{% endif %}

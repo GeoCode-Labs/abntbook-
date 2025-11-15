@@ -1,12 +1,22 @@
-# Dependências Python opcionais para ferramentas auxiliares
-# Descomente conforme necessário
+# Dependências do Jupyter Book
+jupyter-book>=0.15.0
+matplotlib>=3.5.0
+numpy>=1.21.0
+pandas>=1.3.0
+seaborn>=0.11.0
 
-# Para conversão e processamento de arquivos
-# pypdf2==3.0.1
-# pillow==10.0.0
+# Extensões úteis
+sphinx-proof>=0.1.3
+sphinx-examples>=0.0.5
+sphinxcontrib-bibtex>=2.5.0
 
-# Para automação de build
-# invoke==2.2.0
+# Para notebooks interativos
+ipywidgets>=8.0.0
+plotly>=5.0.0
 
-# Para verificação de ortografia
-# pyspellchecker==0.7.2
+# Para análise de dados (opcional)
+scikit-learn>=1.0.0
+scipy>=1.7.0
+
+# Para geração de PDF
+pyppeteer>=1.0.0

@@ -1,0 +1,76 @@
+# Configuração do Jupyter Book
+# Documentação: https://jupyterbook.org/customize/config.html
+
+#######################################################################################
+# Informações do Livro
+#######################################################################################
+title: {{ cookiecutter.project_name }}
+author: {{ cookiecutter.author_name }}
+logo: _static/logo.png
+copyright: "2024"
+
+# Forçar re-execução dos notebooks
+execute:
+  execute_notebooks: auto
+  timeout: 100
+
+# Definir o modo de parse (recomendado: myst)
+parse:
+  myst_enable_extensions:
+    - amsmath
+    - colon_fence
+    - deflist
+    - dollarmath
+    - html_admonition
+    - html_image
+    - linkify
+    - replacements
+    - smartquotes
+    - substitution
+    - tasklist
+
+# Adicionar um botão do GitHub
+repository:
+  url: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}
+  path_to_book: ""
+  branch: main
+
+# Informações sobre o HTML
+html:
+  favicon: _static/favicon.ico
+  use_edit_page_button: true
+  use_repository_button: true
+  use_issues_button: true
+  extra_navbar: Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  baseurl: https://{{ cookiecutter.github_username }}.github.io/{{ cookiecutter.project_slug }}
+  analytics:
+    google_analytics_id: ""
+
+# Configuração do LaTeX para gerar PDF
+latex:
+  latex_engine: pdflatex
+  use_jupyterbook_latex: true
+  latex_documents:
+    targetname: book.tex
+
+# Configuração de citações e bibliografia
+bibtex_bibfiles:
+  - references.bib
+
+sphinx:
+  extra_extensions:
+    - sphinx_proof
+    - sphinx_examples
+  config:
+    language: pt_BR
+    html_theme: sphinx_book_theme
+    html_theme_options:
+      repository_url: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}
+      use_repository_button: true
+      use_issues_button: true
+      use_edit_page_button: true
+      home_page_in_toc: true
+    latex_elements:
+      papersize: a4paper
+      pointsize: 12pt
+      language: brazil

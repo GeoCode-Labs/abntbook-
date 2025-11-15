@@ -1,0 +1,31 @@
+# Table of Contents
+# Documentação: https://jupyterbook.org/structure/toc.html
+
+format: jb-book
+root: intro
+chapters:
+  - file: capitulos/introducao
+    title: Introdução
+
+  - file: capitulos/fundamentacao
+    title: Fundamentação Teórica
+
+  - file: capitulos/metodologia
+    title: Metodologia
+
+  - file: capitulos/resultados
+    title: Resultados e Discussão
+
+  - file: capitulos/conclusao
+    title: Conclusão
+
+  # Seção de notebooks (opcional)
+  - file: notebooks/exemplo
+    title: Notebooks
+    sections:
+      - file: notebooks/analise_dados
+        title: Análise de Dados
+
+  # Referências bibliográficas
+  - file: referencias
+    title: Referências

@@ -4,5 +4,10 @@
   "author_name": "Seu Nome",
   "author_email": "email@example.com",
   "institution": "Nome da Instituição",
-  "use_gitlab_ci": "yes"
+  "github_username": "seu_usuario",
+  "project_description": "Descrição do projeto em uma linha",
+  "version": "0.1.0",
+  "use_gitlab_ci": ["yes", "no"],
+  "use_github_actions": ["yes", "no"],
+  "python_version": "3.9"
 }

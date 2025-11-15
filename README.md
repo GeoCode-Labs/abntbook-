@@ -1,10 +1,10 @@
-# Cookiecutter ABNT – Template
+# Cookiecutter Jupyter Book – Template Acadêmico
 
-Este é um modelo de projeto para gerar documentação científica no formato ABNT usando **Cookiecutter**.
+Este é um modelo de projeto para gerar documentação científica e técnica usando **Jupyter Book** e **Cookiecutter**.
 
 ## 📋 O que é este template?
 
-Este template Cookiecutter permite criar rapidamente projetos de documentos acadêmicos brasileiros usando LaTeX com a classe abnTeX2, que segue as normas da ABNT (Associação Brasileira de Normas Técnicas).
+Este template Cookiecutter permite criar rapidamente projetos de documentação acadêmica e técnica usando [Jupyter Book](https://jupyterbook.org/), uma ferramenta moderna que permite escrever documentação bonita e interativa usando Markdown e Jupyter Notebooks.
 
 ## 🚀 Como usar
 
@@ -39,59 +39,108 @@ Durante a criação, você será questionado sobre:
 - **author_name**: Seu nome completo
 - **author_email**: Seu email
 - **institution**: Nome da sua instituição
+- **github_username**: Seu usuário do GitHub
+- **project_description**: Descrição breve do projeto
+- **version**: Versão inicial (padrão: 0.1.0)
 - **use_gitlab_ci**: Se deseja usar GitLab CI/CD (yes/no)
+- **use_github_actions**: Se deseja usar GitHub Actions (yes/no)
+- **python_version**: Versão do Python (padrão: 3.9)
 
 ## 📁 Estrutura do Template Gerado
 
 ```
 {{ cookiecutter.project_slug }}/
+├── _config.yml                # Configurações do Jupyter Book
+├── _toc.yml                   # Estrutura de navegação (Table of Contents)
+├── intro.md                   # Página inicial
+├── references.bib             # Referências bibliográficas (BibTeX)
+├── referencias.md             # Página de referências
 ├── README.md                  # Documentação do projeto
-├── .gitlab-ci.yml             # Pipeline CI/CD (se habilitado)
-├── requirements.txt           # Dependências Python opcionais
-├── src/
-│   └── main.tex              # Arquivo principal do documento
-├── abntex2/
-│   ├── preambulo.tex         # Configurações e pacotes LaTeX
-│   ├── capa.tex              # Template da capa
-│   ├── folha_rosto.tex       # Template da folha de rosto
-│   └── referencias.bib       # Referências bibliográficas
-└── assets/
-    └── .gitkeep              # Pasta para imagens e logos
+├── requirements.txt           # Dependências Python
+├── .gitignore                 # Arquivos ignorados pelo git
+├── .gitlab-ci.yml             # Pipeline GitLab CI/CD (opcional)
+├── .github/workflows/         # GitHub Actions (opcional)
+│   └── deploy.yml
+├── capitulos/                 # Capítulos em Markdown
+│   ├── introducao.md
+│   ├── fundamentacao.md
+│   ├── metodologia.md
+│   ├── resultados.md
+│   └── conclusao.md
+├── notebooks/                 # Jupyter Notebooks
+│   ├── exemplo.md
+│   └── analise_dados.ipynb
+├── _static/                   # Arquivos estáticos (imagens, CSS)
+│   └── .gitkeep
+└── _templates/                # Templates customizados
 ```
 
-## 🔧 Compilando o Documento
+## 🔧 Construindo o Livro
 
-Após gerar o projeto, entre no diretório e compile:
+Após gerar o projeto:
 
+1. Entre no diretório:
 ```bash
-cd {{ cookiecutter.project_slug }}/src
-pdflatex main.tex
-bibtex main
-pdflatex main.tex
-pdflatex main.tex
+cd {{ cookiecutter.project_slug }}
 ```
 
-Ou use Docker:
+2. Instale as dependências:
+```bash
+pip install -r requirements.txt
+```
+
+3. Construa o livro:
+```bash
+jupyter-book build .
+```
+
+4. Abra o livro no navegador:
+```bash
+# O HTML gerado estará em _build/html/index.html
+open _build/html/index.html  # macOS
+xdg-open _build/html/index.html  # Linux
+start _build/html/index.html  # Windows
+```
+
+### Gerando PDF
 
 ```bash
-docker run --rm -v $(pwd):/workspace texlive/texlive bash -c "cd /workspace/src && pdflatex main.tex && bibtex main && pdflatex main.tex && pdflatex main.tex"
+jupyter-book build . --builder pdflatex
 ```
 
 ## ✨ Funcionalidades
 
-- ✅ Template pré-configurado com abnTeX2
-- ✅ Estrutura modular para fácil manutenção
-- ✅ Suporte a referências bibliográficas (BibTeX)
-- ✅ GitLab CI/CD para compilação automática
-- ✅ Estrutura de pastas organizada
-- ✅ Exemplos de capítulos pré-configurados
+- ✅ **Escrita fácil em Markdown** - MyST Markdown com suporte a LaTeX
+- ✅ **Jupyter Notebooks** - Integre código executável na documentação
+- ✅ **Referências bibliográficas** - Sistema automático com BibTeX
+- ✅ **Equações matemáticas** - Suporte completo a LaTeX
+- ✅ **Temas modernos** - Interface web responsiva e bonita
+- ✅ **Deploy automático** - CI/CD para GitHub Pages ou GitLab Pages
+- ✅ **Exportação PDF** - Gere PDFs de alta qualidade
+- ✅ **Interatividade** - Gráficos, widgets e código executável
+- ✅ **Estrutura pré-configurada** - 5 capítulos prontos para edição
+- ✅ **Exemplos práticos** - Notebooks com análise de dados
 
 ## 📚 Recursos Adicionais
 
-- [abnTeX2 - Site Oficial](https://www.abntex.net.br/)
-- [Normas ABNT](https://www.abnt.org.br/)
+- [Jupyter Book - Documentação Oficial](https://jupyterbook.org/)
+- [MyST Markdown Guide](https://myst-parser.readthedocs.io/)
+- [Sphinx Documentation](https://www.sphinx-doc.org/)
 - [Cookiecutter Documentation](https://cookiecutter.readthedocs.io/)
-- [LaTeX Tutorial](https://www.overleaf.com/learn)
+- [Python Scientific Stack](https://scipy.org/)
+
+## 🎯 Casos de Uso
+
+Este template é ideal para:
+
+- **Trabalhos de Conclusão de Curso (TCC)**
+- **Dissertações de Mestrado**
+- **Teses de Doutorado**
+- **Artigos Científicos**
+- **Documentação Técnica**
+- **Tutoriais Interativos**
+- **Livros Didáticos**
+- **Relatórios de Pesquisa**
 
 ## 🤝 Contribuindo
 
@@ -112,27 +161,51 @@ Este projeto é de código aberto e está disponível para uso acadêmico e educ
 ### Trabalho de Conclusão de Curso (TCC)
 ```bash
 cookiecutter gh:GeoCode-Labs/abntbook-
-# project_name: Trabalho de Conclusão de Curso em Ciência da Computação
+# project_name: Análise de Algoritmos de Machine Learning
+# project_slug: tcc-ml-analise
 # author_name: João Silva
+# github_username: joaosilva
 # institution: Universidade Federal de Exemplo
 ```
 
 ### Dissertação de Mestrado
 ```bash
 cookiecutter gh:GeoCode-Labs/abntbook-
-# project_name: Dissertação de Mestrado em Engenharia de Software
+# project_name: Otimização de Redes Neurais Profundas
+# project_slug: dissertacao-redes-neurais
 # author_name: Maria Santos
 # institution: Instituto de Tecnologia Exemplo
 ```
 
-### Artigo Científico
+### Documentação Técnica
 ```bash
 cookiecutter gh:GeoCode-Labs/abntbook-
-# project_name: Artigo sobre Inteligência Artificial
+# project_name: Guia Completo de Python para Ciência de Dados
+# project_slug: guia-python-ds
 # author_name: Pedro Costa
-# institution: Centro de Pesquisa em IA
+# institution: DataLab Research
 ```
+
+## 🔍 Comparação: Jupyter Book vs LaTeX
+
+| Característica | Jupyter Book | LaTeX Tradicional |
+|----------------|--------------|-------------------|
+| **Facilidade** | ⭐⭐⭐⭐⭐ Markdown simples | ⭐⭐ Sintaxe complexa |
+| **Interatividade** | ⭐⭐⭐⭐⭐ Notebooks, widgets | ⭐ Apenas PDF estático |
+| **Web** | ⭐⭐⭐⭐⭐ HTML responsivo | ⭐ Requer conversão |
+| **PDF** | ⭐⭐⭐⭐ Via LaTeX | ⭐⭐⭐⭐⭐ Nativo |
+| **Código** | ⭐⭐⭐⭐⭐ Executável | ⭐⭐ Apenas exibição |
+| **Deploy** | ⭐⭐⭐⭐⭐ GitHub Pages grátis | ⭐ Manual |
+
+## 🌟 Por que Jupyter Book?
+
+- **Moderno**: Interface web bonita e responsiva
+- **Fácil**: Escreva em Markdown, não em LaTeX
+- **Interativo**: Inclua código executável e visualizações
+- **Colaborativo**: Hospede gratuitamente no GitHub/GitLab
+- **Flexível**: Exporte para HTML, PDF, e-book
+- **Poderoso**: Todo o ecossistema Python científico
 
 ---
 
-**Desenvolvido com ❤️ para a comunidade acadêmica brasileira**
+**Desenvolvido com ❤️ para a comunidade acadêmica e científica brasileira**
