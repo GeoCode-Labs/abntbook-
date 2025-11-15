@@ -13,6 +13,13 @@ cache:
     - venv/
 
 before_script:
+  # Instalar Node.js (requerido pelo Jupyter Book)
+  - apt-get update && apt-get install -y curl
+  - curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+  - apt-get install -y nodejs
+  - node --version
+  - npm --version
+  # Configurar Python
   - python -V
   - pip install virtualenv
   - virtualenv venv
