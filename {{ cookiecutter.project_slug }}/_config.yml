@@ -32,6 +32,7 @@ parse:
     - smartquotes
     - substitution
     - tasklist
+    - references
 
 # Adicionar um botão do GitHub
 repository:

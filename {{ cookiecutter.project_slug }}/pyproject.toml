@@ -16,6 +16,7 @@ readme = "README.md"
 requires-python = ">={{ cookiecutter.python_version }}"
 license = { text = "MIT" }
 
+
 dependencies = [
     # Jupyter Book core
     "jupyter-book>=2.0.0",
