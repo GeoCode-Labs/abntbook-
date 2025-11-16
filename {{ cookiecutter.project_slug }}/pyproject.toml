@@ -41,24 +41,9 @@ dependencies = [
     "pyppeteer>=2.0.0",
 ]
 
-[project.optional-dependencies]
+[dependency-groups]
 dev = [
     "pytest>=9.0.0",
     "black>=25.11.0",
     "ruff>=0.14.0",
 ]
-
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
-[tool.uv]
-dev-dependencies = []
-
-[tool.black]
-line-length = 88
-target-version = ["py{{ cookiecutter.python_version.replace('.', '') }}"]
-
-[tool.ruff]
-line-length = 88
-target-version = "py{{ cookiecutter.python_version.replace('.', '') }}"
