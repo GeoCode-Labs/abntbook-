@@ -1,4 +1,4 @@
-image: python:{{ cookiecutter.python_version }}
+image: ghcr.io/astral-sh/uv:python{{ cookiecutter.python_version }}-bookworm
 
 stages:
   - build
@@ -19,12 +19,10 @@ before_script:
   - apt-get install -y nodejs
   - node --version
   - npm --version
-  # Instalar uv (gerenciador de pacotes Python ultrarrápido)
-  - curl -LsSf https://astral.sh/uv/install.sh | sh
-  - export PATH="$HOME/.local/bin:$PATH"
+  # uv já está instalado na imagem base
   - uv --version
+  - python --version
   # Configurar ambiente Python com uv
-  - python -V
   - uv venv
   - source .venv/bin/activate
   - uv pip install -r requirements.txt
