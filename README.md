@@ -92,7 +92,15 @@ pip install -r requirements.txt
 
 3. Construa o livro:
 ```bash
+# Build incremental (mais rápido para desenvolvimento)
 jupyter-book build .
+
+# Build completo (recomendado para produção)
+jupyter-book build --all .
+
+# Limpar builds anteriores e reconstruir
+jupyter-book clean .
+jupyter-book build --all .
 ```
 
 4. Abra o livro no navegador:
@@ -106,7 +114,7 @@ start _build/html/index.html  # Windows
 ### Gerando PDF
 
 ```bash
-jupyter-book build . --builder pdflatex
+jupyter-book build --all . --builder pdflatex
 ```
 
 ## ✨ Funcionalidades

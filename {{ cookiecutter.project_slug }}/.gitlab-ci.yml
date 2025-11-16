@@ -30,7 +30,8 @@ before_script:
 build:
   stage: build
   script:
-    - jupyter-book build .
+    - jupyter-book clean .
+    - jupyter-book build --all .
   artifacts:
     paths:
       - _build/html
@@ -44,7 +45,8 @@ build:
 pages:
   stage: deploy
   script:
-    - jupyter-book build .
+    - jupyter-book clean .
+    - jupyter-book build --all .
     - mv _build/html public
   artifacts:
     paths:
