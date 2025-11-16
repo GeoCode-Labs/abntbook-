@@ -51,4 +51,4 @@ Este documento foi gerado usando o template Cookiecutter para Jupyter Book, faci
 
 ---
 
-*Última atualização: {sub-ref}`today`*
+*Gerado com Jupyter Book*

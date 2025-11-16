@@ -1,7 +1,6 @@
 # Referências
 
 ```{bibliography}
-:style: unsrt
 ```
 
 ---
