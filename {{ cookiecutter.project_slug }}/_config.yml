@@ -10,7 +10,7 @@ author: {{ cookiecutter.author_name }}, {{ cookiecutter.co_authors }}
 {%- else -%}
 author: {{ cookiecutter.author_name }}
 {%- endif %}
-# logo: _static/logo.png  # Descomente e adicione seu logo
+logo: _static/logo.png
 copyright: "2024"
 
 # Forçar re-execução dos notebooks
@@ -42,6 +42,7 @@ repository:
 
 # Informações sobre o HTML
 html:
+  favicon: _static/favicon.ico
   use_edit_page_button: true
   use_repository_button: true
   use_issues_button: true
