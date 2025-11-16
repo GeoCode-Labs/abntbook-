@@ -10,9 +10,15 @@ Este template Cookiecutter permite criar rapidamente projetos de documentação 
 
 ### Pré-requisitos
 
-Instale o Cookiecutter:
+Instale o Cookiecutter e uv:
 
 ```bash
+# Instalar uv (gerenciador de pacotes Python ultrarrápido)
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Instalar Cookiecutter
+uv tool install cookiecutter
+# ou
 pip install cookiecutter
 ```
 
@@ -85,8 +91,20 @@ Após gerar o projeto:
 cd {{ cookiecutter.project_slug }}
 ```
 
-2. Instale as dependências:
+2. Instale as dependências com uv (recomendado):
 ```bash
+# Criar ambiente virtual e instalar dependências
+uv venv
+source .venv/bin/activate  # Linux/Mac
+# ou .venv\Scripts\activate  # Windows
+
+uv pip install -r requirements.txt
+```
+
+**Alternativa com pip tradicional:**
+```bash
+python -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 
@@ -129,6 +147,7 @@ jupyter-book build --all . --builder pdflatex
 - ✅ **Interatividade** - Gráficos, widgets e código executável
 - ✅ **Estrutura pré-configurada** - 5 capítulos prontos para edição
 - ✅ **Exemplos práticos** - Notebooks com análise de dados
+- ✅ **uv integration** - Instalação ultrarrápida de dependências (10-100x mais rápido que pip)
 
 ## 📚 Recursos Adicionais
 

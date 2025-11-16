@@ -5,12 +5,12 @@ stages:
   - deploy
 
 variables:
-  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  UV_CACHE_DIR: "$CI_PROJECT_DIR/.cache/uv"
 
 cache:
   paths:
-    - .cache/pip
-    - venv/
+    - .cache/uv
+    - .venv/
 
 before_script:
   # Instalar Node.js (requerido pelo Jupyter Book)
@@ -19,12 +19,15 @@ before_script:
   - apt-get install -y nodejs
   - node --version
   - npm --version
-  # Configurar Python
+  # Instalar uv (gerenciador de pacotes Python ultrarrápido)
+  - curl -LsSf https://astral.sh/uv/install.sh | sh
+  - export PATH="$HOME/.cargo/bin:$PATH"
+  - uv --version
+  # Configurar ambiente Python com uv
   - python -V
-  - pip install virtualenv
-  - virtualenv venv
-  - source venv/bin/activate
-  - pip install -r requirements.txt
+  - uv venv
+  - source .venv/bin/activate
+  - uv pip install -r requirements.txt
 
 # Build do Jupyter Book
 build:
