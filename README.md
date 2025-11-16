@@ -63,7 +63,7 @@ Durante a criação, você será questionado sobre:
 ├── references.bib             # Referências bibliográficas (BibTeX)
 ├── referencias.md             # Página de referências
 ├── README.md                  # Documentação do projeto
-├── requirements.txt           # Dependências Python
+├── pyproject.toml             # Configuração e dependências Python (PEP 621)
 ├── .gitignore                 # Arquivos ignorados pelo git
 ├── .gitlab-ci.yml             # Pipeline GitLab CI/CD (opcional)
 ├── .github/workflows/         # GitHub Actions (opcional)
@@ -94,18 +94,16 @@ cd {{ cookiecutter.project_slug }}
 2. Instale as dependências com uv (recomendado):
 ```bash
 # Criar ambiente virtual e instalar dependências
-uv venv
+uv sync
 source .venv/bin/activate  # Linux/Mac
 # ou .venv\Scripts\activate  # Windows
-
-uv pip install -r requirements.txt
 ```
 
 **Alternativa com pip tradicional:**
 ```bash
 python -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
+pip install -e .
 ```
 
 3. Construa o livro:
