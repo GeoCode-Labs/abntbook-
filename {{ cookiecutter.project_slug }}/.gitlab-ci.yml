@@ -21,7 +21,7 @@ before_script:
   - npm --version
   # Instalar uv (gerenciador de pacotes Python ultrarrápido)
   - curl -LsSf https://astral.sh/uv/install.sh | sh
-  - export PATH="$HOME/.cargo/bin:$PATH"
+  - export PATH="$HOME/.local/bin:$PATH"
   - uv --version
   # Configurar ambiente Python com uv
   - python -V
